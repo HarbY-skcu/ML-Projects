@@ -25,10 +25,6 @@ def lossFunction(w, b, dataset):
     total += max(0.0, -margin)
   return total / M
 
-w = np.zeros(3, dtype=float)
-b = 0.0
-step = 1
-
 M = len(dataset)
 max_iters = 100_000
 checkpoints = {1, 10, 100, 1_000, 10_000, 100_000}
@@ -45,4 +41,5 @@ for t in range(1, max_iters + 1):
 
   if t in checkpoints:
     loss = lossFunction(w, b, dataset)
+
     print(f"{t:7d} | {w} | {b:.4f} | {loss:.4f}")
